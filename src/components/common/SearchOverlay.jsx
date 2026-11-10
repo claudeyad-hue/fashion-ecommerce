@@ -99,29 +99,31 @@ const SearchOverlay = ({ isOpen, onClose }) => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -30, opacity: 0 }}
             transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-            className="relative z-10 w-full max-w-3xl mx-auto mt-6 sm:mt-16 bg-white border border-light-grey shadow-2xl px-6 sm:px-8 py-6 mx-4"
+            className="relative z-10 w-[calc(100%-2rem)] max-w-3xl mx-auto mt-4 sm:mt-16 bg-white border border-light-grey shadow-2xl px-4 sm:px-8 py-5 sm:py-6 max-h-[85vh] flex flex-col pt-[max(1.25rem,env(safe-area-inset-top))]"
           >
-            <div className="flex items-center justify-between pb-4 border-b border-light-grey">
+            <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-light-grey">
               <span className="text-xs uppercase tracking-widest font-semibold text-warm-grey">
                 Search LUXE Catalog
               </span>
               <button
                 onClick={onClose}
-                className="p-1 text-charcoal/70 hover:text-charcoal transition-colors"
+                className="w-9 h-9 flex items-center justify-center text-charcoal/70 hover:text-charcoal transition-colors cursor-pointer rounded-sm"
                 aria-label="Close search"
               >
                 <X size={20} />
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex items-center gap-3 py-4 border-b border-light-grey">
-              <Search size={22} className="text-burgundy shrink-0" />
+            <form onSubmit={handleSubmit} className="flex items-center gap-3 py-3 sm:py-4 border-b border-light-grey">
+              <Search size={20} className="text-burgundy shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search by product, category, or style..."
+                placeholder="Search products or style..."
+                autoComplete="off"
+                autoCorrect="off"
                 className="w-full text-base sm:text-lg font-normal bg-transparent outline-none text-charcoal placeholder:text-mid-grey"
               />
               {query && (

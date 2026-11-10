@@ -65,7 +65,7 @@ const Wishlist = () => {
         </div>
 
         {/* Wishlist Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
           {wishlistItems.map((item) => (
             <div
               key={item.id}
@@ -76,6 +76,7 @@ const Wishlist = () => {
                   <img
                     src={item.image}
                     alt={item.name}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </Link>
@@ -84,25 +85,25 @@ const Wishlist = () => {
                     removeFromWishlist(item.id);
                     addToast(`Removed "${item.name}" from wishlist`, 'info');
                   }}
-                  className="absolute top-2.5 right-2.5 p-2 bg-white/90 hover:bg-white text-mid-grey hover:text-error rounded-full shadow-sm transition-colors cursor-pointer"
+                  className="absolute top-2 right-2 sm:top-2.5 sm:right-2.5 w-9 h-9 sm:w-8 sm:h-8 bg-white/95 hover:bg-white text-mid-grey hover:text-error rounded-full shadow-sm transition-colors cursor-pointer flex items-center justify-center"
                   aria-label="Remove from wishlist"
                 >
                   <Trash2 size={15} />
                 </button>
               </div>
 
-              <div className="p-4 space-y-3">
+              <div className="p-3 sm:p-4 space-y-2.5 sm:space-y-3">
                 <div>
                   <p className="text-[10px] uppercase tracking-wider text-warm-grey">
                     {item.category?.replace('-', ' ')}
                   </p>
                   <Link
                     to={`/product/${item.slug}`}
-                    className="font-display text-sm font-semibold text-charcoal hover:text-burgundy block truncate"
+                    className="font-display text-xs sm:text-sm font-semibold text-charcoal hover:text-burgundy block truncate"
                   >
                     {item.name}
                   </Link>
-                  <p className="font-semibold text-sm text-charcoal mt-1">
+                  <p className="font-semibold text-xs sm:text-sm text-charcoal mt-1">
                     {formatPrice(item.price)}
                   </p>
                 </div>
@@ -111,7 +112,7 @@ const Wishlist = () => {
                   onClick={() => handleMoveToCart(item)}
                   variant="burgundy"
                   size="sm"
-                  className="w-full flex items-center justify-center gap-1.5"
+                  className="w-full flex items-center justify-center gap-1.5 min-h-[38px] text-[11px]"
                 >
                   <ShoppingBag size={13} /> Move to Bag
                 </Button>

@@ -49,14 +49,14 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
       </div>
 
       {/* Quantity & Total */}
-      <div className="flex items-center justify-between w-full sm:w-auto sm:gap-8 pt-2 sm:pt-0">
+      <div className="flex items-center justify-between w-full sm:w-auto sm:gap-6 pt-2 sm:pt-0">
         {/* Quantity Controls */}
         <div className="flex items-center border border-light-grey bg-white">
           <button
             type="button"
             onClick={() => onUpdateQuantity(item.itemKey, item.quantity - 1)}
             disabled={item.quantity <= 1}
-            className="px-2.5 py-1.5 text-charcoal hover:bg-ivory disabled:opacity-30 cursor-pointer"
+            className="w-8 h-8 flex items-center justify-center text-charcoal hover:bg-ivory disabled:opacity-30 cursor-pointer"
             aria-label="Decrease quantity"
           >
             <Minus size={13} />
@@ -68,7 +68,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
             type="button"
             onClick={() => onUpdateQuantity(item.itemKey, item.quantity + 1)}
             disabled={item.quantity >= 10}
-            className="px-2.5 py-1.5 text-charcoal hover:bg-ivory disabled:opacity-30 cursor-pointer"
+            className="w-8 h-8 flex items-center justify-center text-charcoal hover:bg-ivory disabled:opacity-30 cursor-pointer"
             aria-label="Increase quantity"
           >
             <Plus size={13} />
@@ -76,7 +76,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
         </div>
 
         {/* Item Total */}
-        <div className="text-right min-w-20">
+        <div className="text-right min-w-16 sm:min-w-20">
           <span className="font-semibold text-sm sm:text-base text-charcoal">
             {formatPrice(item.price * item.quantity)}
           </span>
@@ -85,7 +85,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
         {/* Remove Button */}
         <button
           onClick={() => onRemove(item.itemKey)}
-          className="text-mid-grey hover:text-error transition-colors p-1.5 cursor-pointer"
+          className="w-9 h-9 flex items-center justify-center text-mid-grey hover:text-error transition-colors rounded-sm cursor-pointer"
           aria-label="Remove item"
         >
           <Trash2 size={16} />

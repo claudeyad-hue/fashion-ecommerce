@@ -6,11 +6,11 @@ import ScrollToTop from '../common/ScrollToTop';
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-off-white text-charcoal">
+    <div className="flex flex-col min-h-screen min-h-dvh bg-off-white text-charcoal">
       <ScrollToTop />
       <AnnouncementBar />
       <Navbar />
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full pb-16 md:pb-0">
         <Outlet />
       </main>
       <Footer />

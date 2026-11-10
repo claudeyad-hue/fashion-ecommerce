@@ -11,14 +11,14 @@ const sortOptions = [
 
 const ProductSort = ({ sortBy, onSortChange }) => {
   return (
-    <div className="flex items-center gap-2 text-xs">
-      <span className="text-warm-grey uppercase tracking-wider hidden sm:inline flex items-center gap-1">
-        <ArrowUpDown size={13} /> Sort By:
+    <div className="flex items-center gap-1.5 sm:gap-2 text-xs">
+      <span className="text-warm-grey uppercase tracking-wider hidden sm:inline-flex items-center gap-1">
+        <ArrowUpDown size={13} /> Sort:
       </span>
       <select
         value={sortBy}
         onChange={(e) => onSortChange(e.target.value)}
-        className="bg-white border border-light-grey text-charcoal px-3 py-2 text-xs font-medium focus:outline-none focus:border-burgundy cursor-pointer"
+        className="bg-white border border-light-grey text-charcoal px-3 py-2 text-base sm:text-xs font-medium focus:outline-none focus:border-burgundy cursor-pointer min-h-[42px] sm:min-h-0"
       >
         {sortOptions.map((opt) => (
           <option key={opt.value} value={opt.value}>

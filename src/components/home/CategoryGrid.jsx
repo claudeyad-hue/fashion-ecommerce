@@ -25,7 +25,7 @@ const CategoryGrid = () => {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           {categories.map((cat) => (
             <Link
               key={cat.slug}
@@ -42,7 +42,7 @@ const CategoryGrid = () => {
               </div>
 
               {/* Overlay Label */}
-              <div className="p-4 bg-white border-t border-light-grey flex items-center justify-between">
+              <div className="p-3 sm:p-4 bg-white border-t border-light-grey flex items-center justify-between">
                 <div>
                   <h3 className="font-display text-sm sm:text-base font-semibold text-charcoal group-hover:text-burgundy transition-colors">
                     {cat.name}

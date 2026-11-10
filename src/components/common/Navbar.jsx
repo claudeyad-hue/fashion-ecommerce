@@ -15,6 +15,7 @@ import { categories } from '../../data/categories';
 import SearchOverlay from './SearchOverlay';
 import MobileNav from './MobileNav';
 import CartDrawer from './CartDrawer';
+import MobileBottomBar from './MobileBottomBar';
 
 const Navbar = () => {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
@@ -38,14 +39,14 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-light-grey transition-all">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-light-grey transition-all pt-[env(safe-area-inset-top)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 lg:h-20">
+          <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
             {/* Left: Mobile Menu Button */}
             <div className="flex items-center lg:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="p-2 -ml-2 text-charcoal hover:text-burgundy transition-colors cursor-pointer"
+                className="w-11 h-11 -ml-2 text-charcoal hover:text-burgundy transition-colors cursor-pointer flex items-center justify-center rounded-sm"
                 aria-label="Open mobile navigation"
               >
                 <Menu size={22} />
@@ -216,11 +217,11 @@ const Navbar = () => {
             </nav>
 
             {/* Right: Actions */}
-            <div className="flex items-center space-x-1 sm:space-x-3">
+            <div className="flex items-center space-x-0.5 sm:space-x-2">
               {/* Search Trigger */}
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2.5 text-charcoal hover:text-burgundy transition-colors cursor-pointer"
+                className="w-11 h-11 text-charcoal hover:text-burgundy transition-colors cursor-pointer flex items-center justify-center rounded-sm"
                 aria-label="Open search catalog"
               >
                 <Search size={20} />
@@ -229,12 +230,12 @@ const Navbar = () => {
               {/* Wishlist Link */}
               <Link
                 to="/wishlist"
-                className="p-2.5 text-charcoal hover:text-burgundy transition-colors relative"
+                className="w-11 h-11 text-charcoal hover:text-burgundy transition-colors relative flex items-center justify-center rounded-sm"
                 aria-label={`Wishlist (${wishlistCount} items)`}
               >
                 <Heart size={20} />
                 {wishlistCount > 0 && (
-                  <span className="absolute top-1 right-1 w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                  <span className="absolute top-1.5 right-1.5 min-w-4 h-4 px-1 bg-burgundy text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                     {wishlistCount}
                   </span>
                 )}
@@ -243,12 +244,12 @@ const Navbar = () => {
               {/* Cart Drawer Trigger */}
               <button
                 onClick={openDrawer}
-                className="p-2.5 text-charcoal hover:text-burgundy transition-colors relative cursor-pointer"
+                className="w-11 h-11 text-charcoal hover:text-burgundy transition-colors relative cursor-pointer flex items-center justify-center rounded-sm"
                 aria-label={`Shopping bag (${cartCount} items)`}
               >
                 <ShoppingBag size={20} />
                 {cartCount > 0 && (
-                  <span className="absolute top-1 right-1 w-4.5 h-4.5 bg-charcoal text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                  <span className="absolute top-1.5 right-1.5 min-w-4.5 h-4.5 px-1 bg-charcoal text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                     {cartCount}
                   </span>
                 )}
@@ -262,6 +263,7 @@ const Navbar = () => {
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       <MobileNav isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
       <CartDrawer />
+      <MobileBottomBar onOpenSearch={() => setIsSearchOpen(true)} />
     </>
   );
 };

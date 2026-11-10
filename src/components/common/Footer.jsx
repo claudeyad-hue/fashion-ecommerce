@@ -53,8 +53,8 @@ const Footer = () => {
       {/* Brand Value Pillars */}
       <div className="border-b border-white/10 bg-near-black/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
-            <div className="flex flex-col md:flex-row items-center gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-amber-300">
                 <Truck size={20} />
               </div>
@@ -66,7 +66,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-amber-300">
                 <RotateCcw size={20} />
               </div>
@@ -78,7 +78,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-amber-300">
                 <ShieldCheck size={20} />
               </div>
@@ -90,7 +90,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-amber-300">
                 <Sparkles size={20} />
               </div>
@@ -141,17 +141,19 @@ const Footer = () => {
                 </div>
               ) : (
                 <form onSubmit={handleNewsletterSubmit} className="space-y-2">
-                  <div className="flex">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
                     <input
                       type="email"
+                      inputMode="email"
+                      autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email address"
-                      className="w-full bg-white/5 border border-white/20 px-3.5 py-2.5 text-xs text-white placeholder:text-gray-500 focus:outline-none focus:border-amber-300"
+                      className="w-full bg-white/5 border border-white/20 px-3.5 py-2.5 text-base sm:text-xs text-white placeholder:text-gray-500 focus:outline-none focus:border-amber-300 min-h-[44px]"
                     />
                     <button
                       type="submit"
-                      className="bg-burgundy hover:bg-burgundy-dark text-white px-5 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors shrink-0 flex items-center gap-1 cursor-pointer"
+                      className="bg-burgundy hover:bg-burgundy-dark text-white px-5 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors shrink-0 flex items-center justify-center gap-1 cursor-pointer min-h-[44px]"
                     >
                       <span>Join</span>
                       <ArrowRight size={13} />
@@ -286,7 +288,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 bg-near-black py-6">
+      <div className="border-t border-white/10 bg-near-black py-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>© 2026 LUXE Atelier India Pvt. Ltd. All rights reserved.</p>
           <div className="flex items-center gap-6">

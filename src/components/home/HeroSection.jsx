@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import Button from '../common/Button';
 
 const HeroSection = () => {
@@ -14,44 +14,44 @@ const HeroSection = () => {
               <span>Spring / Summer 2026 Editorial Drop</span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold tracking-tight text-near-black leading-[1.12]">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-near-black leading-[1.12]">
               Elevated Style. <br />
               <span className="italic font-normal text-burgundy">Sculptural</span> Luxury.
             </h1>
 
-            <p className="text-sm sm:text-base text-warm-grey max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+            <p className="text-xs sm:text-sm md:text-base text-warm-grey max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
               Discover artisanal earrings, structured leather handbags, precision-cut denim, and
               curated lifestyle accents designed for the confident, contemporary wardrobe.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-              <Link to="/shop">
-                <Button variant="burgundy" size="lg" className="w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+              <Link to="/shop" className="w-full sm:w-auto">
+                <Button variant="burgundy" size="lg" className="w-full">
                   Explore Collection <ArrowRight size={16} />
                 </Button>
               </Link>
-              <Link to="/shop?filter=new-arrivals">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              <Link to="/shop?filter=new-arrivals" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full">
                   View New Arrivals
                 </Button>
               </Link>
             </div>
 
             {/* Social Proof */}
-            <div className="pt-6 border-t border-light-grey flex items-center justify-center lg:justify-start gap-8 text-xs text-warm-grey">
+            <div className="pt-6 border-t border-light-grey flex items-center justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8 text-xs text-warm-grey">
               <div>
-                <p className="font-display text-xl font-bold text-charcoal">40+</p>
-                <p className="text-[11px] uppercase tracking-wider">Artisan Styles</p>
+                <p className="font-display text-lg sm:text-xl font-bold text-charcoal">40+</p>
+                <p className="text-[10px] sm:text-[11px] uppercase tracking-wider">Artisan Styles</p>
               </div>
-              <div className="h-8 w-px bg-light-grey" />
+              <div className="h-7 w-px bg-light-grey" />
               <div>
-                <p className="font-display text-xl font-bold text-charcoal">4.9 ★</p>
-                <p className="text-[11px] uppercase tracking-wider">Customer Rating</p>
+                <p className="font-display text-lg sm:text-xl font-bold text-charcoal">4.9 ★</p>
+                <p className="text-[10px] sm:text-[11px] uppercase tracking-wider">Customer Rating</p>
               </div>
-              <div className="h-8 w-px bg-light-grey" />
+              <div className="h-7 w-px bg-light-grey" />
               <div>
-                <p className="font-display text-xl font-bold text-charcoal">100%</p>
-                <p className="text-[11px] uppercase tracking-wider">Authentic Materials</p>
+                <p className="font-display text-lg sm:text-xl font-bold text-charcoal">100%</p>
+                <p className="text-[10px] sm:text-[11px] uppercase tracking-wider">Pure Metals</p>
               </div>
             </div>
           </div>

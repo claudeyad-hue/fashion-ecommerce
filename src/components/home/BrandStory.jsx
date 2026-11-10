@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Feather, Recycle, HeartHandshake } from 'lucide-react';
+import { ArrowRight, Feather, Recycle, HeartHandshake } from 'lucide-react';
 
 const BrandStory = () => {
   return (

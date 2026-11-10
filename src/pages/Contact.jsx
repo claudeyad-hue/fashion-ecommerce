@@ -122,10 +122,11 @@ const Contact = () => {
                     </label>
                     <input
                       type="text"
+                      autoComplete="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Malini Sharma"
-                      className="w-full bg-ivory border border-light-grey px-3.5 py-2.5 text-xs text-charcoal focus:outline-none focus:border-burgundy"
+                      className="w-full bg-ivory border border-light-grey px-3.5 py-2.5 text-base sm:text-xs text-charcoal focus:outline-none focus:border-burgundy min-h-[44px]"
                     />
                     {errors.name && <p className="text-[11px] text-error mt-1">{errors.name}</p>}
                   </div>
@@ -136,10 +137,12 @@ const Contact = () => {
                     </label>
                     <input
                       type="email"
+                      inputMode="email"
+                      autoComplete="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. malini@example.com"
-                      className="w-full bg-ivory border border-light-grey px-3.5 py-2.5 text-xs text-charcoal focus:outline-none focus:border-burgundy"
+                      className="w-full bg-ivory border border-light-grey px-3.5 py-2.5 text-base sm:text-xs text-charcoal focus:outline-none focus:border-burgundy min-h-[44px]"
                     />
                     {errors.email && <p className="text-[11px] text-error mt-1">{errors.email}</p>}
                   </div>
@@ -153,7 +156,7 @@ const Contact = () => {
                     <select
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full bg-ivory border border-light-grey px-3.5 py-2.5 text-xs text-charcoal focus:outline-none focus:border-burgundy cursor-pointer"
+                      className="w-full bg-ivory border border-light-grey px-3.5 py-2.5 text-base sm:text-xs text-charcoal focus:outline-none focus:border-burgundy cursor-pointer min-h-[44px]"
                     >
                       <option>General Inquiry</option>
                       <option>Order Status & Tracking</option>
@@ -172,7 +175,7 @@ const Contact = () => {
                       value={formData.orderId}
                       onChange={(e) => setFormData({ ...formData, orderId: e.target.value })}
                       placeholder="e.g. LX-8492"
-                      className="w-full bg-ivory border border-light-grey px-3.5 py-2.5 text-xs text-charcoal focus:outline-none focus:border-burgundy"
+                      className="w-full bg-ivory border border-light-grey px-3.5 py-2.5 text-base sm:text-xs text-charcoal focus:outline-none focus:border-burgundy min-h-[44px]"
                     />
                   </div>
                 </div>
@@ -186,7 +189,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="How may our concierge assist your styling or order today?"
-                    className="w-full bg-ivory border border-light-grey p-3.5 text-xs text-charcoal focus:outline-none focus:border-burgundy leading-relaxed"
+                    className="w-full bg-ivory border border-light-grey p-3.5 text-base sm:text-xs text-charcoal focus:outline-none focus:border-burgundy leading-relaxed"
                   />
                   {errors.message && (
                     <p className="text-[11px] text-error mt-1">{errors.message}</p>

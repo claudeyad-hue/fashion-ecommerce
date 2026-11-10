@@ -106,7 +106,7 @@ const Cart = () => {
         {/* Cart Grid: Items on Left, Summary on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Cart Items List */}
-          <div className="lg:col-span-8 bg-white border border-light-grey p-6 lg:p-8">
+          <div className="lg:col-span-8 bg-white border border-light-grey p-4 sm:p-6 lg:p-8">
             <div className="hidden sm:grid grid-cols-12 text-[11px] uppercase tracking-widest font-semibold text-warm-grey pb-4 border-b border-light-grey">
               <span className="col-span-6">Product Details</span>
               <span className="col-span-3 text-center">Quantity</span>
@@ -166,7 +166,7 @@ const Cart = () => {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative z-10 w-full max-w-lg bg-white border border-light-grey shadow-2xl p-6 sm:p-8"
+              className="relative z-10 w-full max-w-lg bg-white border border-light-grey shadow-2xl p-5 sm:p-8 max-h-[90vh] overflow-y-auto scroll-touch"
             >
               {!isOrderPlaced ? (
                 <div className="space-y-5">

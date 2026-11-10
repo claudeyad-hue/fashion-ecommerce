@@ -12,7 +12,7 @@ const ColorSelector = ({ colors = [], selectedColor, onSelectColor }) => {
         </span>
       </div>
 
-      <div className="flex items-center gap-2.5">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
         {colors.map((color) => {
           const isSelected = selectedColor?.name === color.name;
           return (
@@ -21,10 +21,10 @@ const ColorSelector = ({ colors = [], selectedColor, onSelectColor }) => {
               type="button"
               onClick={() => onSelectColor(color)}
               title={color.name}
-              className={`relative w-7 h-7 rounded-full border transition-all cursor-pointer ${
+              className={`relative w-9 h-9 sm:w-8 sm:h-8 rounded-full border transition-all cursor-pointer flex items-center justify-center ${
                 isSelected
-                  ? 'ring-2 ring-burgundy ring-offset-2 border-charcoal/30'
-                  : 'border-light-grey hover:scale-110'
+                  ? 'ring-2 ring-burgundy ring-offset-2 border-charcoal/30 scale-105'
+                  : 'border-light-grey hover:scale-110 active:scale-95'
               }`}
               style={{ backgroundColor: color.hex }}
             >

@@ -31,10 +31,10 @@ const SizeSelector = ({ sizes = [], selectedSize, onSelectSize, onOpenSizeGuide 
               key={size}
               type="button"
               onClick={() => onSelectSize(size)}
-              className={`min-w-11 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border ${
+              className={`min-w-11 min-h-[42px] px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border flex items-center justify-center ${
                 isSelected
-                  ? 'bg-charcoal text-white border-charcoal'
-                  : 'bg-white text-charcoal border-light-grey hover:border-charcoal'
+                  ? 'bg-charcoal text-white border-charcoal shadow-sm'
+                  : 'bg-white text-charcoal border-light-grey hover:border-charcoal active:bg-ivory'
               }`}
             >
               {size}

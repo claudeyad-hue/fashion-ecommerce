@@ -107,10 +107,10 @@ const Shop = () => {
           </div>
 
           {/* Sort and Mobile Filter Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 w-full sm:w-auto">
             <button
               onClick={() => setIsMobileFiltersOpen(true)}
-              className="lg:hidden px-4 py-2 bg-ivory border border-light-grey text-xs uppercase tracking-wider font-semibold text-charcoal flex items-center gap-2 cursor-pointer"
+              className="lg:hidden px-3.5 sm:px-4 py-2 bg-ivory border border-light-grey text-xs uppercase tracking-wider font-semibold text-charcoal flex items-center gap-2 cursor-pointer min-h-[42px]"
             >
               <SlidersHorizontal size={14} className="text-burgundy" />
               <span>Filters {activeFiltersCount > 0 && `(${activeFiltersCount})`}</span>
@@ -159,7 +159,7 @@ const Shop = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-              className="relative z-10 w-full max-w-sm bg-white h-full overflow-y-auto shadow-2xl"
+              className="relative z-10 w-full max-w-sm bg-white h-full h-dvh overflow-y-auto scroll-touch shadow-2xl pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
             >
               <ProductFilters
                 filters={filters}

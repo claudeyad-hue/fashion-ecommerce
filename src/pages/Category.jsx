@@ -6,7 +6,7 @@ import { sortProducts } from '../utils/filters';
 import ProductGrid from '../components/products/ProductGrid';
 import ProductSort from '../components/products/ProductSort';
 import Breadcrumbs from '../components/common/Breadcrumbs';
-import { ArrowLeft, SlidersHorizontal } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 const Category = () => {
   const { slug } = useParams();
@@ -100,13 +100,13 @@ const Category = () => {
       {/* Products & Filters */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Controls Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-light-grey mb-8">
-          <div className="flex flex-wrap items-center gap-3 text-xs">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-6 border-b border-light-grey mb-8">
+          <div className="flex items-center gap-2 overflow-x-auto scroll-touch scrollbar-none py-1 text-xs whitespace-nowrap">
             {/* Price Filter Pills */}
-            <span className="text-warm-grey uppercase font-semibold">Filter:</span>
+            <span className="text-warm-grey uppercase font-semibold shrink-0">Filter:</span>
             <button
               onClick={() => setSelectedPriceRange('all')}
-              className={`px-3 py-1.5 border text-xs uppercase tracking-wider cursor-pointer ${
+              className={`px-3 py-2 border text-xs uppercase tracking-wider cursor-pointer shrink-0 min-h-[38px] ${
                 selectedPriceRange === 'all'
                   ? 'bg-charcoal text-white border-charcoal'
                   : 'bg-white text-charcoal border-light-grey hover:border-charcoal'
@@ -116,7 +116,7 @@ const Category = () => {
             </button>
             <button
               onClick={() => setSelectedPriceRange('under-1500')}
-              className={`px-3 py-1.5 border text-xs uppercase tracking-wider cursor-pointer ${
+              className={`px-3 py-2 border text-xs uppercase tracking-wider cursor-pointer shrink-0 min-h-[38px] ${
                 selectedPriceRange === 'under-1500'
                   ? 'bg-charcoal text-white border-charcoal'
                   : 'bg-white text-charcoal border-light-grey hover:border-charcoal'
@@ -126,7 +126,7 @@ const Category = () => {
             </button>
             <button
               onClick={() => setSelectedPriceRange('1500-3000')}
-              className={`px-3 py-1.5 border text-xs uppercase tracking-wider cursor-pointer ${
+              className={`px-3 py-2 border text-xs uppercase tracking-wider cursor-pointer shrink-0 min-h-[38px] ${
                 selectedPriceRange === '1500-3000'
                   ? 'bg-charcoal text-white border-charcoal'
                   : 'bg-white text-charcoal border-light-grey hover:border-charcoal'
@@ -136,7 +136,7 @@ const Category = () => {
             </button>
             <button
               onClick={() => setSelectedPriceRange('over-3000')}
-              className={`px-3 py-1.5 border text-xs uppercase tracking-wider cursor-pointer ${
+              className={`px-3 py-2 border text-xs uppercase tracking-wider cursor-pointer shrink-0 min-h-[38px] ${
                 selectedPriceRange === 'over-3000'
                   ? 'bg-charcoal text-white border-charcoal'
                   : 'bg-white text-charcoal border-light-grey hover:border-charcoal'
@@ -146,7 +146,7 @@ const Category = () => {
             </button>
 
             {/* In stock toggle */}
-            <label className="flex items-center gap-1.5 text-xs text-charcoal ml-2 cursor-pointer">
+            <label className="flex items-center gap-1.5 text-xs text-charcoal ml-2 cursor-pointer shrink-0 min-h-[38px] py-1 px-2 hover:bg-ivory rounded">
               <input
                 type="checkbox"
                 checked={inStockOnly}

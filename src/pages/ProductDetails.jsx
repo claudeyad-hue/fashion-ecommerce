@@ -21,7 +21,6 @@ import {
   RotateCcw,
   ShieldCheck,
   Check,
-  Ruler,
   AlertCircle,
 } from 'lucide-react';
 
@@ -298,15 +297,17 @@ const ProductDetails = () => {
               <form onSubmit={handlePincodeCheck} className="flex gap-2">
                 <input
                   type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   maxLength={6}
                   value={pincode}
                   onChange={(e) => setPincode(e.target.value)}
                   placeholder="Enter 6-digit Pincode"
-                  className="flex-1 bg-white border border-light-grey px-3 py-1.5 text-xs text-charcoal focus:outline-none focus:border-burgundy"
+                  className="flex-1 bg-white border border-light-grey px-3 py-2 text-xs sm:text-sm text-charcoal focus:outline-none focus:border-burgundy min-h-[42px]"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-1.5 bg-charcoal text-white text-xs uppercase tracking-wider font-semibold hover:bg-near-black"
+                  className="px-4 py-2 bg-charcoal text-white text-xs uppercase tracking-wider font-semibold hover:bg-near-black min-h-[42px] cursor-pointer"
                 >
                   Check
                 </button>
@@ -337,11 +338,11 @@ const ProductDetails = () => {
         </div>
 
         {/* Product Tabs: Details, Specifications, Reviews */}
-        <div className="mt-16 pt-10 border-t border-light-grey">
-          <div className="flex items-center justify-center border-b border-light-grey gap-6 sm:gap-12 mb-8">
+        <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-light-grey">
+          <div className="flex items-center overflow-x-auto scroll-touch justify-start sm:justify-center border-b border-light-grey gap-4 sm:gap-12 mb-8 whitespace-nowrap px-1">
             <button
               onClick={() => setActiveTab('details')}
-              className={`pb-4 text-xs sm:text-sm uppercase tracking-widest font-semibold transition-all relative cursor-pointer ${
+              className={`pb-3.5 sm:pb-4 text-xs sm:text-sm uppercase tracking-widest font-semibold transition-all relative cursor-pointer shrink-0 ${
                 activeTab === 'details' ? 'text-burgundy font-bold' : 'text-warm-grey hover:text-charcoal'
               }`}
             >
@@ -353,7 +354,7 @@ const ProductDetails = () => {
 
             <button
               onClick={() => setActiveTab('reviews')}
-              className={`pb-4 text-xs sm:text-sm uppercase tracking-widest font-semibold transition-all relative cursor-pointer ${
+              className={`pb-3.5 sm:pb-4 text-xs sm:text-sm uppercase tracking-widest font-semibold transition-all relative cursor-pointer shrink-0 ${
                 activeTab === 'reviews' ? 'text-burgundy font-bold' : 'text-warm-grey hover:text-charcoal'
               }`}
             >
@@ -365,7 +366,7 @@ const ProductDetails = () => {
 
             <button
               onClick={() => setActiveTab('shipping')}
-              className={`pb-4 text-xs sm:text-sm uppercase tracking-widest font-semibold transition-all relative cursor-pointer ${
+              className={`pb-3.5 sm:pb-4 text-xs sm:text-sm uppercase tracking-widest font-semibold transition-all relative cursor-pointer shrink-0 ${
                 activeTab === 'shipping' ? 'text-burgundy font-bold' : 'text-warm-grey hover:text-charcoal'
               }`}
             >
@@ -537,6 +538,42 @@ const ProductDetails = () => {
             </div>
           </div>
         )}
+        {/* Mobile Sticky Add-to-Bag Bar */}
+        <div className="md:hidden fixed bottom-14 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-light-grey p-3 px-4 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[11px] text-warm-grey truncate">{product.name}</p>
+            <p className="font-display text-base font-bold text-charcoal">
+              {formatPrice(product.price)}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => {
+                toggleWishlist(product);
+                addToast(
+                  isFavorited
+                    ? `Removed "${product.name}" from wishlist`
+                    : `Saved "${product.name}" to wishlist`,
+                  'wishlist'
+                );
+              }}
+              className="w-10 h-10 border border-light-grey bg-white flex items-center justify-center shrink-0 cursor-pointer"
+              aria-label="Wishlist"
+            >
+              <Heart
+                size={16}
+                className={isFavorited ? 'fill-burgundy text-burgundy' : 'text-charcoal'}
+              />
+            </button>
+            <button
+              onClick={handleAddToCart}
+              className="px-5 py-2.5 bg-burgundy text-white text-xs uppercase tracking-widest font-semibold flex items-center gap-1.5 shrink-0 shadow-sm cursor-pointer"
+            >
+              <ShoppingBag size={14} />
+              <span>Add to Bag</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

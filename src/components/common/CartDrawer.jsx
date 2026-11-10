@@ -61,19 +61,19 @@ const CartDrawer = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="relative z-10 w-full max-w-md bg-white h-full flex flex-col shadow-2xl border-l border-light-grey"
+            className="relative z-10 w-full max-w-md bg-white h-full h-dvh flex flex-col shadow-2xl border-l border-light-grey pt-[env(safe-area-inset-top)]"
           >
             {/* Header */}
-            <div className="p-5 border-b border-light-grey flex items-center justify-between bg-ivory/60">
+            <div className="p-4 sm:p-5 border-b border-light-grey flex items-center justify-between bg-ivory/60">
               <div className="flex items-center gap-2.5">
                 <ShoppingBag size={20} className="text-burgundy" />
-                <h3 className="font-display text-lg font-semibold tracking-wide text-charcoal">
+                <h3 className="font-display text-base sm:text-lg font-semibold tracking-wide text-charcoal">
                   Shopping Bag ({cartCount})
                 </h3>
               </div>
               <button
                 onClick={closeDrawer}
-                className="p-1.5 text-warm-grey hover:text-charcoal transition-colors cursor-pointer"
+                className="w-10 h-10 flex items-center justify-center text-warm-grey hover:text-charcoal transition-colors cursor-pointer rounded-sm"
                 aria-label="Close cart drawer"
               >
                 <X size={20} />
@@ -188,18 +188,18 @@ const CartDrawer = () => {
                           <button
                             onClick={() => updateQuantity(item.itemKey, item.quantity - 1)}
                             disabled={item.quantity <= 1}
-                            className="p-1.5 text-charcoal hover:bg-ivory disabled:opacity-30 transition-colors cursor-pointer"
+                            className="w-8 h-8 flex items-center justify-center text-charcoal hover:bg-ivory disabled:opacity-30 transition-colors cursor-pointer"
                             aria-label="Decrease quantity"
                           >
                             <Minus size={13} />
                           </button>
-                          <span className="px-2.5 text-xs font-semibold text-charcoal">
+                          <span className="px-2 text-xs font-semibold text-charcoal">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => updateQuantity(item.itemKey, item.quantity + 1)}
                             disabled={item.quantity >= 10}
-                            className="p-1.5 text-charcoal hover:bg-ivory disabled:opacity-30 transition-colors cursor-pointer"
+                            className="w-8 h-8 flex items-center justify-center text-charcoal hover:bg-ivory disabled:opacity-30 transition-colors cursor-pointer"
                             aria-label="Increase quantity"
                           >
                             <Plus size={13} />
@@ -220,7 +220,7 @@ const CartDrawer = () => {
 
             {/* Footer Summary */}
             {items.length > 0 && (
-              <div className="p-5 bg-ivory/60 border-t border-light-grey space-y-3">
+              <div className="p-4 sm:p-5 bg-ivory/60 border-t border-light-grey space-y-3 pb-[calc(1rem+env(safe-area-inset-bottom))]">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-warm-grey uppercase tracking-wider text-xs">Subtotal</span>
                   <span className="font-semibold text-base text-charcoal">{formatPrice(subtotal)}</span>

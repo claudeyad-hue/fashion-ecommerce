@@ -32,11 +32,11 @@ const MobileNav = ({ isOpen, onClose }) => {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className="relative z-10 w-full max-w-xs sm:max-w-sm bg-white h-full flex flex-col shadow-2xl border-r border-light-grey"
+            className="relative z-10 w-full max-w-xs sm:max-w-sm bg-white h-full h-dvh flex flex-col shadow-2xl border-r border-light-grey pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-5 border-b border-light-grey bg-ivory">
-              <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-light-grey bg-ivory">
+              <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2 py-1">
                 <span className="font-display text-2xl font-bold tracking-widest text-charcoal">
                   LUXE
                 </span>
@@ -46,7 +46,7 @@ const MobileNav = ({ isOpen, onClose }) => {
               </Link>
               <button
                 onClick={onClose}
-                className="p-1.5 text-warm-grey hover:text-charcoal transition-colors cursor-pointer"
+                className="w-10 h-10 flex items-center justify-center text-warm-grey hover:text-charcoal transition-colors cursor-pointer rounded-sm"
                 aria-label="Close mobile navigation"
               >
                 <X size={22} />
@@ -54,12 +54,12 @@ const MobileNav = ({ isOpen, onClose }) => {
             </div>
 
             {/* Navigation links */}
-            <div className="flex-1 overflow-y-auto py-4">
-              <div className="px-5 mb-4">
+            <div className="flex-1 overflow-y-auto py-3 scroll-touch">
+              <div className="px-5 mb-3">
                 <Link
                   to="/shop"
                   onClick={handleLinkClick}
-                  className="flex items-center justify-between p-3.5 bg-burgundy text-white text-xs uppercase tracking-widest font-semibold hover:bg-burgundy-dark transition-colors"
+                  className="flex items-center justify-between p-3.5 min-h-[44px] bg-burgundy text-white text-xs uppercase tracking-widest font-semibold hover:bg-burgundy-dark transition-colors"
                 >
                   <span>Explore All Products</span>
                   <ArrowRight size={15} />
@@ -72,7 +72,7 @@ const MobileNav = ({ isOpen, onClose }) => {
                   end
                   onClick={handleLinkClick}
                   className={({ isActive }) =>
-                    `block px-4 py-2.5 text-xs uppercase tracking-widest font-medium transition-colors ${
+                    `flex items-center px-4 min-h-[44px] text-xs uppercase tracking-widest font-medium transition-colors ${
                       isActive ? 'text-burgundy bg-ivory font-bold' : 'text-charcoal hover:bg-ivory'
                     }`
                   }
@@ -84,7 +84,7 @@ const MobileNav = ({ isOpen, onClose }) => {
                 <div>
                   <button
                     onClick={() => setIsCatExpanded(!isCatExpanded)}
-                    className="w-full flex items-center justify-between px-4 py-2.5 text-xs uppercase tracking-widest font-medium text-charcoal hover:bg-ivory transition-colors cursor-pointer"
+                    className="w-full flex items-center justify-between px-4 min-h-[44px] text-xs uppercase tracking-widest font-medium text-charcoal hover:bg-ivory transition-colors cursor-pointer"
                   >
                     <span>Categories ({categories.length})</span>
                     <ChevronDown
@@ -101,14 +101,14 @@ const MobileNav = ({ isOpen, onClose }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden bg-ivory/60 pl-4 py-1 space-y-1"
+                        className="overflow-hidden bg-ivory/60 pl-4 py-1 space-y-0.5"
                       >
                         {categories.map((cat) => (
                           <Link
                             key={cat.slug}
                             to={`/category/${cat.slug}`}
                             onClick={handleLinkClick}
-                            className="flex items-center justify-between px-4 py-2 text-xs text-warm-grey hover:text-burgundy hover:bg-white/80 transition-colors"
+                            className="flex items-center justify-between px-4 min-h-[38px] text-xs text-warm-grey hover:text-burgundy hover:bg-white/80 transition-colors"
                           >
                             <span>{cat.name}</span>
                             <span className="text-[10px] text-mid-grey">({cat.count})</span>
@@ -122,7 +122,7 @@ const MobileNav = ({ isOpen, onClose }) => {
                 <NavLink
                   to="/shop?filter=new-arrivals"
                   onClick={handleLinkClick}
-                  className="flex items-center justify-between px-4 py-2.5 text-xs uppercase tracking-widest font-medium text-charcoal hover:bg-ivory transition-colors"
+                  className="flex items-center justify-between px-4 min-h-[44px] text-xs uppercase tracking-widest font-medium text-charcoal hover:bg-ivory transition-colors"
                 >
                   <span className="flex items-center gap-1.5">
                     <Sparkles size={14} className="text-burgundy" /> New Arrivals
@@ -135,7 +135,7 @@ const MobileNav = ({ isOpen, onClose }) => {
                 <NavLink
                   to="/shop?filter=best-sellers"
                   onClick={handleLinkClick}
-                  className="block px-4 py-2.5 text-xs uppercase tracking-widest font-medium text-charcoal hover:bg-ivory transition-colors"
+                  className="flex items-center px-4 min-h-[44px] text-xs uppercase tracking-widest font-medium text-charcoal hover:bg-ivory transition-colors"
                 >
                   Best Sellers
                 </NavLink>
@@ -143,7 +143,7 @@ const MobileNav = ({ isOpen, onClose }) => {
                 <NavLink
                   to="/wishlist"
                   onClick={handleLinkClick}
-                  className="flex items-center justify-between px-4 py-2.5 text-xs uppercase tracking-widest font-medium text-charcoal hover:bg-ivory transition-colors"
+                  className="flex items-center justify-between px-4 min-h-[44px] text-xs uppercase tracking-widest font-medium text-charcoal hover:bg-ivory transition-colors"
                 >
                   <span className="flex items-center gap-2">
                     <Heart size={15} /> My Wishlist
@@ -155,18 +155,18 @@ const MobileNav = ({ isOpen, onClose }) => {
                   )}
                 </NavLink>
 
-                <div className="border-t border-light-grey my-3 pt-3">
+                <div className="border-t border-light-grey my-3 pt-2">
                   <NavLink
                     to="/about"
                     onClick={handleLinkClick}
-                    className="block px-4 py-2 text-xs uppercase tracking-widest text-warm-grey hover:text-charcoal"
+                    className="flex items-center px-4 min-h-[40px] text-xs uppercase tracking-widest text-warm-grey hover:text-charcoal"
                   >
                     About The Brand
                   </NavLink>
                   <NavLink
                     to="/contact"
                     onClick={handleLinkClick}
-                    className="block px-4 py-2 text-xs uppercase tracking-widest text-warm-grey hover:text-charcoal"
+                    className="flex items-center px-4 min-h-[40px] text-xs uppercase tracking-widest text-warm-grey hover:text-charcoal"
                   >
                     Customer Care & Contact
                   </NavLink>

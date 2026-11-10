@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Tag, ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 import Button from '../common/Button';
 
 const PromoBanner = () => {

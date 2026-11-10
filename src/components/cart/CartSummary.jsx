@@ -115,11 +115,13 @@ const CartSummary = ({
               value={couponCode}
               onChange={(e) => setCouponCode(e.target.value)}
               placeholder="e.g. LUXE15"
-              className="flex-1 bg-ivory border border-light-grey px-3 py-2 text-xs uppercase tracking-wider focus:outline-none focus:border-burgundy"
+              autoCapitalize="characters"
+              autoCorrect="off"
+              className="flex-1 bg-ivory border border-light-grey px-3 py-2 text-xs uppercase tracking-wider focus:outline-none focus:border-burgundy min-h-[42px]"
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-charcoal text-white hover:bg-near-black text-xs uppercase tracking-widest font-semibold transition-colors cursor-pointer"
+              className="px-4 py-2 bg-charcoal text-white hover:bg-near-black text-xs uppercase tracking-widest font-semibold transition-colors cursor-pointer min-h-[42px]"
             >
               Apply
             </button>

@@ -123,15 +123,15 @@ const ProductFilters = ({
         <h4 className="text-xs uppercase tracking-widest font-semibold text-charcoal mb-3">
           Categories
         </h4>
-        <div className="space-y-1.5">
-          <label className="flex items-center justify-between text-xs text-charcoal hover:text-burgundy cursor-pointer py-1">
-            <div className="flex items-center gap-2">
+        <div className="space-y-1">
+          <label className="flex items-center justify-between text-xs text-charcoal hover:text-burgundy cursor-pointer py-2 px-1 rounded hover:bg-ivory transition-colors">
+            <div className="flex items-center gap-2.5">
               <input
                 type="radio"
                 name="category"
                 checked={!filters.category || filters.category === 'all'}
                 onChange={() => onFilterChange({ ...filters, category: 'all' })}
-                className="accent-burgundy"
+                className="w-4 h-4 accent-burgundy"
               />
               <span className={!filters.category || filters.category === 'all' ? 'font-bold' : ''}>
                 All Products
@@ -143,15 +143,15 @@ const ProductFilters = ({
           {categories.map((cat) => (
             <label
               key={cat.slug}
-              className="flex items-center justify-between text-xs text-charcoal hover:text-burgundy cursor-pointer py-1"
+              className="flex items-center justify-between text-xs text-charcoal hover:text-burgundy cursor-pointer py-2 px-1 rounded hover:bg-ivory transition-colors"
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 <input
                   type="radio"
                   name="category"
                   checked={filters.category === cat.slug}
                   onChange={() => onFilterChange({ ...filters, category: cat.slug })}
-                  className="accent-burgundy"
+                  className="w-4 h-4 accent-burgundy"
                 />
                 <span className={filters.category === cat.slug ? 'font-bold text-burgundy' : ''}>
                   {cat.name}
@@ -168,7 +168,7 @@ const ProductFilters = ({
         <h4 className="text-xs uppercase tracking-widest font-semibold text-charcoal mb-3">
           Price Range
         </h4>
-        <div className="space-y-1.5">
+        <div className="space-y-1">
           {priceRanges.map((range, idx) => {
             const isSelected =
               filters.minPrice === range.min &&
@@ -176,7 +176,7 @@ const ProductFilters = ({
             return (
               <label
                 key={idx}
-                className="flex items-center gap-2 text-xs text-charcoal hover:text-burgundy cursor-pointer py-1"
+                className="flex items-center gap-2.5 text-xs text-charcoal hover:text-burgundy cursor-pointer py-2 px-1 rounded hover:bg-ivory transition-colors"
               >
                 <input
                   type="radio"
@@ -189,7 +189,7 @@ const ProductFilters = ({
                       maxPrice: range.max,
                     })
                   }
-                  className="accent-burgundy"
+                  className="w-4 h-4 accent-burgundy"
                 />
                 <span className={isSelected ? 'font-bold text-burgundy' : ''}>
                   {range.label}
@@ -205,7 +205,7 @@ const ProductFilters = ({
         <h4 className="text-xs uppercase tracking-widest font-semibold text-charcoal mb-3">
           Availability
         </h4>
-        <label className="flex items-center gap-2 text-xs text-charcoal cursor-pointer py-1">
+        <label className="flex items-center gap-2.5 text-xs text-charcoal cursor-pointer py-2 px-1 rounded hover:bg-ivory transition-colors">
           <input
             type="checkbox"
             checked={!!filters.inStockOnly}
@@ -219,12 +219,14 @@ const ProductFilters = ({
       </div>
 
       {isMobileDrawer && (
-        <button
-          onClick={onCloseMobileDrawer}
-          className="w-full py-3 bg-burgundy text-white text-xs uppercase tracking-widest font-semibold"
-        >
-          View Results ({totalResults})
-        </button>
+        <div className="pt-2 pb-[max(1rem,env(safe-area-inset-bottom))]">
+          <button
+            onClick={onCloseMobileDrawer}
+            className="w-full py-3.5 bg-burgundy text-white text-xs uppercase tracking-widest font-semibold shadow-md cursor-pointer"
+          >
+            View Results ({totalResults})
+          </button>
+        </div>
       )}
     </div>
   );

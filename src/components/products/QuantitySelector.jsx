@@ -2,12 +2,12 @@ import { Plus, Minus } from 'lucide-react';
 
 const QuantitySelector = ({ quantity = 1, onQuantityChange, max = 10, min = 1 }) => {
   return (
-    <div className="flex items-center border border-light-grey bg-white">
+    <div className="flex items-center border border-light-grey bg-white min-h-[42px]">
       <button
         type="button"
         onClick={() => onQuantityChange(Math.max(min, quantity - 1))}
         disabled={quantity <= min}
-        className="px-3.5 py-2.5 text-charcoal hover:bg-ivory disabled:opacity-30 transition-colors cursor-pointer"
+        className="w-10 h-10 flex items-center justify-center text-charcoal hover:bg-ivory disabled:opacity-30 transition-colors cursor-pointer"
         aria-label="Decrease quantity"
       >
         <Minus size={14} />
@@ -19,7 +19,7 @@ const QuantitySelector = ({ quantity = 1, onQuantityChange, max = 10, min = 1 })
         type="button"
         onClick={() => onQuantityChange(Math.min(max, quantity + 1))}
         disabled={quantity >= max}
-        className="px-3.5 py-2.5 text-charcoal hover:bg-ivory disabled:opacity-30 transition-colors cursor-pointer"
+        className="w-10 h-10 flex items-center justify-center text-charcoal hover:bg-ivory disabled:opacity-30 transition-colors cursor-pointer"
         aria-label="Increase quantity"
       >
         <Plus size={14} />

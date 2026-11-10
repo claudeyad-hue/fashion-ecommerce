@@ -84,7 +84,7 @@ const ProductCard = ({ product }) => {
         <button
           onClick={handleWishlistClick}
           aria-label={isFavorited ? 'Remove from wishlist' : 'Add to wishlist'}
-          className="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center text-charcoal hover:text-burgundy hover:scale-110 active:scale-95 transition-all shadow-sm z-10 cursor-pointer"
+          className="absolute top-2 right-2 sm:top-2.5 sm:right-2.5 w-9 h-9 sm:w-8 sm:h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-charcoal hover:text-burgundy hover:scale-110 active:scale-95 transition-all shadow-sm z-10 cursor-pointer"
         >
           <Heart
             size={16}
@@ -160,10 +160,10 @@ const ProductCard = ({ product }) => {
           {/* Mobile visible action icon */}
           <button
             onClick={handleQuickAdd}
-            className="sm:hidden p-1.5 text-charcoal hover:text-burgundy bg-ivory rounded-none"
+            className="sm:hidden w-9 h-9 flex items-center justify-center text-charcoal hover:text-burgundy bg-ivory border border-light-grey active:bg-burgundy active:text-white transition-colors"
             aria-label="Add to bag"
           >
-            <ShoppingBag size={16} />
+            <ShoppingBag size={15} />
           </button>
         </div>
       </div>
